@@ -15,8 +15,13 @@ interface VisualizationBulletChartByUriProps {
   selector: 'app-visualization-bullet-chart-by-identifier',
   template: '<div class="visualization-bullet-chart-by-identifier" style="height:400px" [id]="rootDomID"></div>',
 })
+<<<<<<< HEAD
 
 export class VisualizationBulletChartByIdentifierComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+=======
+export class VisualizationBulletChartByIdentifierComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
+
+>>>>>>> FEATURE: QA-10590 [Angular] Add examples for Bullet Chart
   public rootDomID: string;
 
   protected getRootDomNode() {
