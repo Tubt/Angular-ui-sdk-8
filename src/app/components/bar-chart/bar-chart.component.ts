@@ -2,27 +2,20 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { Ldm, LdmExt } from "../../../ldm";
+import { BarChart } from "@gooddata/sdk-ui-charts";
+import { workspace } from "../../../utils/fixtures";
 
-import { BarChart, Model } from '@gooddata/react-components';
-import {
-  projectId,
-  totalSalesIdentifier,
-  locationResortIdentifier,
-  franchiseFeesAdRoyaltyIdentifier
-} from "../../../utils/fixtures";
+import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
+const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
+
 
 interface BarChartBucketProps {
   measures: any[];
   viewBy?: any[];
-  stackBy?: any;
-  filters?: any[];
-  sortBy?: any[];
-  config?: any;
-}
-
-interface BarChartProps {
-  projectId: any;
+  backend: any;
+  workspace: any;
 }
 
 @Component({
@@ -31,34 +24,7 @@ interface BarChartProps {
 })
 
 export class BarChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  measures = [
-    Model.measure(totalSalesIdentifier)
-      .format("#,##0")
-      .alias("$ Total Sales"),
-    Model.measure(franchiseFeesAdRoyaltyIdentifier)
-      .alias("Franchise Fee")
-      .format("$#,##0.00")]
-
-  viewBy = [Model.attribute(locationResortIdentifier)]
-
-  filterLocationResort = [Model.positiveAttributeFilter(locationResortIdentifier, ["Irving", "Montgomery", "San Jose", "Deerfield Beach"], true)]
-
-  config = {
-    dataLabels: {
-      visible: 'auto'
-    },
-    legend: {
-      enabled: true,
-      position: 'top',
-    },
-    separators: {
-      thousand: ',',
-      decimal: '.'
-    },
-    stackMeasures: true,
-    stackMeasuresToPercent: true
-  }
-
+  
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -67,13 +33,12 @@ export class BarChartComponent implements OnInit, OnDestroy, OnChanges, AfterVie
     return node;
   }
 
-  protected getProps(): BarChartProps | BarChartBucketProps {
+  protected getProps(): BarChartBucketProps {
     return {
-      projectId: projectId,
-      measures: this.measures,
-      viewBy: this.viewBy,
-      filters: this.filterLocationResort,
-      config: this.config
+      backend: backend,
+      workspace: workspace,
+      measures:[LdmExt.TotalSales1],
+      viewBy: [Ldm.LocationResort]
     };
   }
 

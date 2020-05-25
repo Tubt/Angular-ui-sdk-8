@@ -301,6 +301,7 @@ import { VisualizationHasMvfComponent } from './visualizations/visualization-has
         MeasureValueFilterComponentShowInPercentComponent,
         VisualizationHasMvfComponent
 
+
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
