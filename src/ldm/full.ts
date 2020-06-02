@@ -1,20 +1,8 @@
 /* tslint:disable:file-header */
 /* tslint:disable:variable-name */
-/* THIS FILE WAS AUTO-GENERATED USING CATALOG EXPORTER; YOU SHOULD NOT EDIT THIS FILE; GENERATE TIME: 2020-05-25T04:47:59.570Z; */
+/* THIS FILE WAS AUTO-GENERATED USING CATALOG EXPORTER; YOU SHOULD NOT EDIT THIS FILE; GENERATE TIME: 2020-06-01T09:52:03.895Z; */
 import { newAttribute, newMeasure, IAttribute, IMeasure, IMeasureDefinition } from "@gooddata/sdk-model";
 
-export const City = {
-  /**
-   * Display Form Title: city
-   * Display Form ID: label.uscities.city
-   */
-  Default: newAttribute("label.uscities.city")
-  /**
-   * Display Form Title: location
-   * Display Form ID: label.uscities.city.location
-   */,
-  Location: newAttribute("label.uscities.city.location")
-};
 /**
  * Attribute Title: Cost Type
  * Display Form ID: attr.restaurantcostsfact.costtype
@@ -110,16 +98,6 @@ export const MenuItemName: IAttribute = newAttribute("label.menuitem.menuitemnam
  */
 export const RestaurantCategory: IAttribute = newAttribute("label.restaurantprofile.restaurantcategory");
 /**
- * Attribute Title: State Name
- * Display Form ID: attr.uscities.state_name
- */
-export const StateName: IAttribute = newAttribute("label.uscities.state_name");
-/**
- * Attribute Title: Time Zone
- * Display Form ID: attr.uscities.timezone
- */
-export const TimeZone: IAttribute = newAttribute("label.uscities.timezone");
-/**
  * Attribute Title: Transaction Id
  * Display Form ID: attr.salesdetailfact.transactionid
  */
@@ -172,12 +150,6 @@ export const NrFranchiseLocations: IMeasure<IMeasureDefinition> = newMeasure("ac
  * Metric Type: MAQL Metric
  */
 export const NrItemsOnCheck: IMeasure<IMeasureDefinition> = newMeasure("adFurWGrd2H8");
-/**
- * Metric Title: # Location City
- * Metric ID: aafmUcxXd17M
- * Metric Type: MAQL Metric
- */
-export const NrLocationCity: IMeasure<IMeasureDefinition> = newMeasure("aafmUcxXd17M");
 /**
  * Metric Title: # Owned Locations
  * Metric ID: aaBJGIyWbxfO
@@ -449,30 +421,6 @@ export const AvgEntreePercentByRestaurant: IMeasure<IMeasureDefinition> = newMea
  */
 export const AvgEntreePercentByServer: IMeasure<IMeasureDefinition> = newMeasure("aexwEtn0eHwB");
 /**
- * Metric Title: Copy of # Checks
- * Metric ID: aaXPBxfTfD9X
- * Metric Type: MAQL Metric
- */
-export const CopyOfNrChecks: IMeasure<IMeasureDefinition> = newMeasure("aaXPBxfTfD9X");
-/**
- * Metric Title: Cost [Sum]
- * Metric ID: aa5PiLLtivHj
- * Metric Type: MAQL Metric
- */
-export const CostSum: IMeasure<IMeasureDefinition> = newMeasure("aa5PiLLtivHj");
-/**
- * Metric Title: FF_Franchise
- * Metric ID: abrGFttngGVg
- * Metric Type: MAQL Metric
- */
-export const FFFranchise: IMeasure<IMeasureDefinition> = newMeasure("abrGFttngGVg");
-/**
- * Metric Title: FF_Year
- * Metric ID: abu8kcLNgSeG
- * Metric Type: MAQL Metric
- */
-export const FFYear: IMeasure<IMeasureDefinition> = newMeasure("abu8kcLNgSeG");
-/**
  * Metric Title: Franchise Fee (Initial Fee) % Change
  * Metric ID: aabHgIqabggQ
  * Metric Type: MAQL Metric
@@ -629,54 +577,6 @@ export const Cost = {
   Runsum: newMeasure("fact.restaurantcostsfact.cost", m => m.aggregation("runsum"))
 };
 /**
- * Fact Title: Density
- * Fact ID: fact.uscities.density
- */
-export const Density = {
-  /**
-   * Fact Title: Density
-   * Fact ID: fact.uscities.density
-   * Fact Aggregation: sum
-   */
-  Sum: newMeasure("fact.uscities.density", m => m.aggregation("sum"))
-  /**
-   * Fact Title: Density
-   * Fact ID: fact.uscities.density
-   * Fact Aggregation: count
-   */,
-  Count: newMeasure("fact.uscities.density", m => m.aggregation("count"))
-  /**
-   * Fact Title: Density
-   * Fact ID: fact.uscities.density
-   * Fact Aggregation: avg
-   */,
-  Avg: newMeasure("fact.uscities.density", m => m.aggregation("avg"))
-  /**
-   * Fact Title: Density
-   * Fact ID: fact.uscities.density
-   * Fact Aggregation: min
-   */,
-  Min: newMeasure("fact.uscities.density", m => m.aggregation("min"))
-  /**
-   * Fact Title: Density
-   * Fact ID: fact.uscities.density
-   * Fact Aggregation: max
-   */,
-  Max: newMeasure("fact.uscities.density", m => m.aggregation("max"))
-  /**
-   * Fact Title: Density
-   * Fact ID: fact.uscities.density
-   * Fact Aggregation: median
-   */,
-  Median: newMeasure("fact.uscities.density", m => m.aggregation("median"))
-  /**
-   * Fact Title: Density
-   * Fact ID: fact.uscities.density
-   * Fact Aggregation: runsum
-   */,
-  Runsum: newMeasure("fact.uscities.density", m => m.aggregation("runsum"))
-};
-/**
  * Fact Title: Menu Item Quantity
  * Fact ID: fact.salesdetailfact.menuitemquantity
  */
@@ -723,54 +623,6 @@ export const MenuItemQuantity = {
    * Fact Aggregation: runsum
    */,
   Runsum: newMeasure("fact.salesdetailfact.menuitemquantity", m => m.aggregation("runsum"))
-};
-/**
- * Fact Title: Population
- * Fact ID: fact.uscities.population
- */
-export const Population = {
-  /**
-   * Fact Title: Population
-   * Fact ID: fact.uscities.population
-   * Fact Aggregation: sum
-   */
-  Sum: newMeasure("fact.uscities.population", m => m.aggregation("sum"))
-  /**
-   * Fact Title: Population
-   * Fact ID: fact.uscities.population
-   * Fact Aggregation: count
-   */,
-  Count: newMeasure("fact.uscities.population", m => m.aggregation("count"))
-  /**
-   * Fact Title: Population
-   * Fact ID: fact.uscities.population
-   * Fact Aggregation: avg
-   */,
-  Avg: newMeasure("fact.uscities.population", m => m.aggregation("avg"))
-  /**
-   * Fact Title: Population
-   * Fact ID: fact.uscities.population
-   * Fact Aggregation: min
-   */,
-  Min: newMeasure("fact.uscities.population", m => m.aggregation("min"))
-  /**
-   * Fact Title: Population
-   * Fact ID: fact.uscities.population
-   * Fact Aggregation: max
-   */,
-  Max: newMeasure("fact.uscities.population", m => m.aggregation("max"))
-  /**
-   * Fact Title: Population
-   * Fact ID: fact.uscities.population
-   * Fact Aggregation: median
-   */,
-  Median: newMeasure("fact.uscities.population", m => m.aggregation("median"))
-  /**
-   * Fact Title: Population
-   * Fact ID: fact.uscities.population
-   * Fact Aggregation: runsum
-   */,
-  Runsum: newMeasure("fact.uscities.population", m => m.aggregation("runsum"))
 };
 /**
  * Fact Title: Scheduled Cost
@@ -1447,6 +1299,235 @@ export const FiscalDateDate = {
    */,
   DdMmYyyy_1: newAttribute("fiscaldate.fiscaljun1_date.eddmmyyyy")
 };
+/**
+ * Attribute Title: Year (Paydate)
+ * Display Form ID: paydate.year
+ */
+export const PaydateYear: IAttribute = newAttribute("paydate.year.default");
+/**
+ * Attribute Title: Quarter (Paydate)
+ * Display Form ID: paydate.quarter.in.year
+ */
+export const PaydateQuarter: IAttribute = newAttribute("paydate.quarter.in.year.default");
+export const PaydateWeekSunSatYear = {
+  /**
+   * Display Form Title: Week #/Year (W1/2010) (Paydate)
+   * Display Form ID: paydate.week.wk_year
+   */
+  WeekNrYear: newAttribute("paydate.week.wk_year")
+  /**
+   * Display Form Title: Week Starting (Paydate)
+   * Display Form ID: paydate.week.starting
+   */,
+  WeekStarting: newAttribute("paydate.week.starting")
+  /**
+   * Display Form Title: From - To (Paydate)
+   * Display Form ID: paydate.week.from_to
+   */,
+  FromTo: newAttribute("paydate.week.from_to")
+  /**
+   * Display Form Title: Week #/Year (Cont.) (Paydate)
+   * Display Form ID: paydate.week.wk_year_cont
+   */,
+  WeekNrYear_1: newAttribute("paydate.week.wk_year_cont")
+  /**
+   * Display Form Title: Wk/Qtr/Year (Cont.) (Paydate)
+   * Display Form ID: paydate.week.wk_qtr_year_cont
+   */,
+  WkQtrYear: newAttribute("paydate.week.wk_qtr_year_cont")
+  /**
+   * Display Form Title: Wk/Qtr/Year (Paydate)
+   * Display Form ID: paydate.week.wk_qtr_year
+   */,
+  WkQtrYear_1: newAttribute("paydate.week.wk_qtr_year")
+};
+/**
+ * Attribute Title: Week (Sun-Sat) (Paydate)
+ * Display Form ID: paydate.week.in.year
+ */
+export const PaydateWeekSunSat: IAttribute = newAttribute("paydate.week.in.year.number_us");
+/**
+ * Attribute Title: Week (Sun-Sat) of Qtr (Paydate)
+ * Display Form ID: paydate.week.in.quarter
+ */
+export const PaydateWeekSunSatOfQtr: IAttribute = newAttribute("paydate.week.in.quarter.number_us");
+export const PaydateWeekMonSunYear = {
+  /**
+   * Display Form Title: Week #/Year (W1/2010) (Paydate)
+   * Display Form ID: paydate.euweek.wk_year
+   */
+  WeekNrYear: newAttribute("paydate.euweek.wk_year")
+  /**
+   * Display Form Title: Week Starting (Paydate)
+   * Display Form ID: paydate.euweek.starting
+   */,
+  WeekStarting: newAttribute("paydate.euweek.starting")
+  /**
+   * Display Form Title: From - To (Paydate)
+   * Display Form ID: paydate.euweek.from_to
+   */,
+  FromTo: newAttribute("paydate.euweek.from_to")
+};
+/**
+ * Attribute Title: Week (Mon-Sun) (Paydate)
+ * Display Form ID: paydate.euweek.in.year
+ */
+export const PaydateWeekMonSun: IAttribute = newAttribute("paydate.euweek.in.year.number_eu");
+/**
+ * Attribute Title: Week (Mon-Sun) of Qtr (Paydate)
+ * Display Form ID: paydate.euweek.in.quarter
+ */
+export const PaydateWeekMonSunOfQtr: IAttribute = newAttribute("paydate.euweek.in.quarter.number_eu");
+export const PaydateMonth = {
+  /**
+   * Display Form Title: Short (Jan) (Paydate)
+   * Display Form ID: paydate.month.in.year.short
+   */
+  Short: newAttribute("paydate.month.in.year.short")
+  /**
+   * Display Form Title: Long (January) (Paydate)
+   * Display Form ID: paydate.month.in.year.long
+   */,
+  Long: newAttribute("paydate.month.in.year.long")
+  /**
+   * Display Form Title: Number (M1) (Paydate)
+   * Display Form ID: paydate.month.in.year.number
+   */,
+  Number: newAttribute("paydate.month.in.year.number")
+  /**
+   * Display Form Title: M/Q (M1/Q1) (Paydate)
+   * Display Form ID: paydate.month.in.year.m_q
+   */,
+  MQ: newAttribute("paydate.month.in.year.m_q")
+};
+/**
+ * Attribute Title: Month of Quarter (Paydate)
+ * Display Form ID: paydate.month.in.quarter
+ */
+export const PaydateMonthOfQuarter: IAttribute = newAttribute("paydate.month.in.quarter.number");
+/**
+ * Attribute Title: Day of Year (Paydate)
+ * Display Form ID: paydate.day.in.year
+ */
+export const PaydateDayOfYear: IAttribute = newAttribute("paydate.day.in.year.default");
+export const PaydateDayOfWeekSunSat = {
+  /**
+   * Display Form Title: Short (Sun) (Paydate)
+   * Display Form ID: paydate.day.in.week.short
+   */
+  Short: newAttribute("paydate.day.in.week.short")
+  /**
+   * Display Form Title: Long (Sunday) (Paydate)
+   * Display Form ID: paydate.day.in.week.long
+   */,
+  Long: newAttribute("paydate.day.in.week.long")
+  /**
+   * Display Form Title: Number (1=Sunday) (Paydate)
+   * Display Form ID: paydate.day.in.week.number
+   */,
+  Number: newAttribute("paydate.day.in.week.number")
+};
+export const PaydateDayOfWeekMonSun = {
+  /**
+   * Display Form Title: Short (Mon) (Paydate)
+   * Display Form ID: paydate.day.in.euweek.short
+   */
+  Short: newAttribute("paydate.day.in.euweek.short")
+  /**
+   * Display Form Title: Long (Monday) (Paydate)
+   * Display Form ID: paydate.day.in.euweek.long
+   */,
+  Long: newAttribute("paydate.day.in.euweek.long")
+  /**
+   * Display Form Title: Number (1=Monday) (Paydate)
+   * Display Form ID: paydate.day.in.euweek.number
+   */,
+  Number: newAttribute("paydate.day.in.euweek.number")
+};
+/**
+ * Attribute Title: Day of Quarter (Paydate)
+ * Display Form ID: paydate.day.in.quarter
+ */
+export const PaydateDayOfQuarter: IAttribute = newAttribute("paydate.day.in.quarter.default");
+/**
+ * Attribute Title: Day of Month (Paydate)
+ * Display Form ID: paydate.day.in.month
+ */
+export const PaydateDayOfMonth: IAttribute = newAttribute("paydate.day.in.month.default");
+/**
+ * Attribute Title: Quarter/Year (Paydate)
+ * Display Form ID: paydate.quarter
+ */
+export const PaydateQuarterYear: IAttribute = newAttribute("paydate.quarter.short_us");
+export const PaydateMonthYear = {
+  /**
+   * Display Form Title: Short (Jan 2010) (Paydate)
+   * Display Form ID: paydate.month.short
+   */
+  Short: newAttribute("paydate.month.short")
+  /**
+   * Display Form Title: Long (January 2010) (Paydate)
+   * Display Form ID: paydate.month.long
+   */,
+  Long: newAttribute("paydate.month.long")
+  /**
+   * Display Form Title: Number (1/2010) (Paydate)
+   * Display Form ID: paydate.month.number
+   */,
+  Number: newAttribute("paydate.month.number")
+};
+export const PaydateDate = {
+  /**
+   * Display Form Title: mm/dd/yyyy (Paydate)
+   * Display Form ID: paydate.date.day.us.mm_dd_yyyy
+   */
+  MmDdYyyy: newAttribute("paydate.date.day.us.mm_dd_yyyy")
+  /**
+   * Display Form Title: yyyy-mm-dd (Paydate)
+   * Display Form ID: paydate.date.day.yyyy_mm_dd
+   */,
+  YyyyMmDd: newAttribute("paydate.date.day.yyyy_mm_dd")
+  /**
+   * Display Form Title: m/d/yy (no leading zeroes) (Paydate)
+   * Display Form ID: paydate.date.day.us.m_d_yy
+   */,
+  MDYy: newAttribute("paydate.date.day.us.m_d_yy")
+  /**
+   * Display Form Title: Long (Mon, Jan 1, 2010) (Paydate)
+   * Display Form ID: paydate.date.day.us.long
+   */,
+  Long: newAttribute("paydate.date.day.us.long")
+  /**
+   * Display Form Title: dd/mm/yyyy (Paydate)
+   * Display Form ID: paydate.date.day.uk.dd_mm_yyyy
+   */,
+  DdMmYyyy: newAttribute("paydate.date.day.uk.dd_mm_yyyy")
+  /**
+   * Display Form Title: dd-mm-yyyy (Paydate)
+   * Display Form ID: paydate.date.day.eu.dd_mm_yyyy
+   */,
+  DdMmYyyy_1: newAttribute("paydate.date.day.eu.dd_mm_yyyy")
+};
+/**
+ * Attribute Title: US Week Year (Paydate)
+ * Display Form ID: paydate.year.for.week
+ */
+export const PaydateUSWeekYear: IAttribute = newAttribute("paydate.year.for.week.number");
+/**
+ * Attribute Title: US Week Quarter (Paydate)
+ * Display Form ID: paydate.quarter.for.week
+ */
+export const PaydateUSWeekQuarter: IAttribute = newAttribute("paydate.quarter.for.week.number");
+/**
+ * Attribute Title: EU Week Year (Paydate)
+ * Display Form ID: paydate.year.for.euweek
+ */
+export const PaydateEUWeekYear: IAttribute = newAttribute("paydate.year.for.euweek.number");
+/**
+ * Attribute Title: EU Week Quarter (Paydate)
+ * Display Form ID: paydate.quarter.for.euweek
+ */
+export const PaydateEUWeekQuarter: IAttribute = newAttribute("paydate.quarter.for.euweek.number");
 export const Insights = {
   /**
    * Insight Title: Avg Entree %
@@ -1509,383 +1590,373 @@ export const Insights = {
    */,
   FranchiseFees: "aahnVeLugyFj"
   /**
-   * Insight Title: Franchise Fees 2017
-   * Insight ID: aaZWa46oh9cJ
+   * Insight Title: Jak se ukladaj totaly?
+   * Insight ID: aag18QiFahiP
    */,
-  FranchiseFees2017: "aaZWa46oh9cJ"
+  JakSeUkladajTotaly: "aag18QiFahiP"
   /**
-   * Insight Title: Too many datapoints
-   * Insight ID: afgeutl8hfOe
+   * Insight Title: doc_bb
+   * Insight ID: aandGpipapsE
    */,
-  TooManyDatapoints: "afgeutl8hfOe"
+  DocBb: "aandGpipapsE"
   /**
-   * Insight Title: Test
-   * Insight ID: ab6KtJ2LfmCV
+   * Insight Title: Owned by city
+   * Insight ID: aabnb2Kae09O
    */,
-  Test: "ab6KtJ2LfmCV"
+  OwnedByCity: "aabnb2Kae09O"
   /**
-   * Insight Title: 123
-   * Insight ID: ab3KtvTggKY5
+   * Insight Title: location filter
+   * Insight ID: aacoryj5fJDB
    */,
-  _123: "ab3KtvTggKY5"
+  LocationFilter: "aacoryj5fJDB"
   /**
-   * Insight Title: asdf
-   * Insight ID: aepRx0i8haM7
+   * Insight Title: pivot table test
+   * Insight ID: aae1lFs8hjW8
    */,
-  Asdf: "aepRx0i8haM7"
+  PivotTableTest: "aae1lFs8hjW8"
   /**
-   * Insight Title: too many data points
-   * Insight ID: adzkfjmWiajP
+   * Insight Title: pivot test 2
+   * Insight ID: aacFP4anfb59
    */,
-  TooManyDataPoints: "adzkfjmWiajP"
+  PivotTest2: "aacFP4anfb59"
   /**
-   * Insight Title: test-pzb
-   * Insight ID: aa0wmZDugnUX
+   * Insight Title: bar chart test
+   * Insight ID: aacLScsebpR2
    */,
-  TestPzb: "aa0wmZDugnUX"
+  BarChartTest: "aacLScsebpR2"
   /**
-   * Insight Title: # Checks viewed by City stacked by Location
-   * Insight ID: aby6oS6DbpFX
+   * Insight Title: pivot table test 3
+   * Insight ID: aadfnfPBbOPT
    */,
-  NrChecksViewedByCityStackedByLocation: "aby6oS6DbpFX"
+  PivotTableTest3: "aadfnfPBbOPT"
   /**
-   * Insight Title: Kyle's Insight
-   * Insight ID: aazlme4wcy3O
+   * Insight Title: Ondruv big pivot
+   * Insight ID: aappR4vfcFbc
    */,
-  KyleSInsight: "aazlme4wcy3O"
+  OndruvBigPivot: "aappR4vfcFbc"
   /**
-   * Insight Title: Gross Profit by location
-   * Insight ID: ad4lhli5dn5v
+   * Insight Title: Gross Profit Date filter
+   * Insight ID: aabH7H5KeQmC
    */,
-  GrossProfitByLocation: "ad4lhli5dn5v"
+  GrossProfitDateFilter: "aabH7H5KeQmC"
   /**
-   * Insight Title: ui-example-1
-   * Insight ID: aasloSSGgcAs
+   * Insight Title: pivot saved sort test
+   * Insight ID: aabKUfWbgIEF
    */,
-  UiExample1: "aasloSSGgcAs"
+  PivotSavedSortTest: "aabKUfWbgIEF"
   /**
-   * Insight Title: DanielsFirstKPI
-   * Insight ID: aaHloqmuf0Ea
+   * Insight Title: test pivot table
+   * Insight ID: aafSxnYyiFfJ
    */,
-  DanielsFirstKPI: "aaHloqmuf0Ea"
+  TestPivotTable: "aafSxnYyiFfJ"
   /**
-   * Insight Title: states
-   * Insight ID: aayloZPWhziV
+   * Insight Title: pivot_lho
+   * Insight ID: aabkQXHpayg5
    */,
-  States: "aayloZPWhziV"
+  PivotLho: "aabkQXHpayg5"
   /**
-   * Insight Title: Jakub's visualisation
-   * Insight ID: abNloeB7iy4S
+   * Insight Title: dual axes bar
+   * Insight ID: aaelg6f2eVQw
    */,
-  JakubSVisualisation: "abNloeB7iy4S"
+  DualAxesBar: "aaelg6f2eVQw"
   /**
-   * Insight Title: sdf_restrant_per_city
-   * Insight ID: aamlpUW9d6gc
+   * Insight Title: test pivot table 2
+   * Insight ID: aabtW12gev8y
    */,
-  SdfRestrantPerCity: "aamlpUW9d6gc"
+  TestPivotTable2: "aabtW12gev8y"
   /**
-   * Insight Title: fargo
-   * Insight ID: acyllEgrhybI
+   * Insight Title: pivot 2
+   * Insight ID: aac7e1q3dmP0
    */,
-  Fargo: "acyllEgrhybI"
+  Pivot2: "aac7e1q3dmP0"
   /**
-   * Insight Title: new_test
-   * Insight ID: aeHmbn7Ciok6
+   * Insight Title: test 2
+   * Insight ID: aac249qvixcU
    */,
-  NewTest: "aeHmbn7Ciok6"
+  Test2: "aac249qvixcU"
   /**
-   * Insight Title: Zajícův insight 2
-   * Insight ID: abgprmHgf3uq
+   * Insight Title: drill test
+   * Insight ID: aafkGVOGeVqI
    */,
-  ZajCVInsight2: "abgprmHgf3uq"
+  DrillTest: "aafkGVOGeVqI"
   /**
-   * Insight Title: previousPeriod
-   * Insight ID: aaMNtrdagrFW
+   * Insight Title: Dual axes test
+   * Insight ID: aaePJArweqWe
    */,
-  PreviousPeriod: "aaMNtrdagrFW"
+  DualAxesTest: "aaePJArweqWe"
   /**
-   * Insight Title: Table to Pivot
-   * Insight ID: aaYPSrp3bqyQ
+   * Insight Title: DHO_test
+   * Insight ID: aaxhtKfGfkEF
    */,
-  TableToPivot: "aaYPSrp3bqyQ"
+  DHOTest: "aaxhtKfGfkEF"
   /**
-   * Insight Title: Table to Pivot #2
-   * Insight ID: aaRUKANgdCex
+   * Insight Title: DHO_test2
+   * Insight ID: aabiyT4CehGr
    */,
-  TableToPivotNr2: "aaRUKANgdCex"
+  DHOTest2: "aabiyT4CehGr"
   /**
-   * Insight Title: Table to Pivot #3
-   * Insight ID: abdUSeYRfG4P
+   * Insight Title: small
+   * Insight ID: aanzUEMWbq6z
    */,
-  TableToPivotNr3: "abdUSeYRfG4P"
+  Small: "aanzUEMWbq6z"
   /**
-   * Insight Title: Bubble Chart
-   * Insight ID: aa6D2HhshWHB
+   * Insight Title: more
+   * Insight ID: aacAuwnXespp
    */,
-  BubbleChart: "aa6D2HhshWHB"
+  More: "aacAuwnXespp"
   /**
-   * Insight Title: hackathon
-   * Insight ID: abxJEfZhfOk9
+   * Insight Title: DHO_test3
+   * Insight ID: aacWKocqgmEQ
    */,
-  Hackathon: "abxJEfZhfOk9"
+  DHOTest3: "aacWKocqgmEQ"
   /**
-   * Insight Title: pie2
-   * Insight ID: abcJGKsFhpp5
+   * Insight Title: one row
+   * Insight ID: aacXsNbVguPs
    */,
-  Pie2: "abcJGKsFhpp5"
+  OneRow: "aacXsNbVguPs"
   /**
-   * Insight Title: Column Chart
-   * Insight ID: acKLst3Faran
+   * Insight Title: PivotTable sort over col attr TEST
+   * Insight ID: aaoX68WrbizG
    */,
-  ColumnChart: "acKLst3Faran"
+  PivotTableSortOverColAttrTEST: "aaoX68WrbizG"
   /**
-   * Insight Title: Dummy chart
-   * Insight ID: abw8Uco2cT1B
+   * Insight Title: PivotTable TEST delete
+   * Insight ID: aak2sQdegGaU
    */,
-  DummyChart: "abw8Uco2cT1B"
+  PivotTableTESTDelete: "aak2sQdegGaU"
   /**
-   * Insight Title: test insight 1
-   * Insight ID: ab68UlSRcNcP
+   * Insight Title: DHO_test4
+   * Insight ID: aah24doLdkfQ
    */,
-  TestInsight1: "ab68UlSRcNcP"
+  DHOTest4: "aah24doLdkfQ"
   /**
-   * Insight Title: Pivot test
-   * Insight ID: abIFNtySe2mv
+   * Insight Title: DHO_test6
+   * Insight ID: aab9BbnTeARE
    */,
-  PivotTest: "abIFNtySe2mv"
+  DHOTest6: "aab9BbnTeARE"
   /**
-   * Insight Title: Table Without Measure
-   * Insight ID: act2Khypdnz6
+   * Insight Title: DHO_test7
+   * Insight ID: aab9CyaOeudX
    */,
-  TableWithoutMeasure: "act2Khypdnz6"
+  DHOTest7: "aab9CyaOeudX"
   /**
-   * Insight Title: asdfasdf
-   * Insight ID: ab7CymgRcuDx
+   * Insight Title: DHO_test10
+   * Insight ID: aaeCF1BQggYI
    */,
-  Asdfasdf: "ab7CymgRcuDx"
+  DHOTest10: "aaeCF1BQggYI"
   /**
-   * Insight Title: PivotTable sort over column attribute TEST
-   * Insight ID: ackXHPqtheSt
+   * Insight Title: PivotTable rollup TEST
+   * Insight ID: aahCVIXgcxDB
    */,
-  PivotTableSortOverColumnAttributeTEST: "ackXHPqtheSt"
+  PivotTableRollupTEST: "aahCVIXgcxDB"
   /**
-   * Insight Title: Table Totals test
-   * Insight ID: abS3P51kcXLN
+   * Insight Title: DHO_RAIL-1285
+   * Insight ID: aafM5QCbgVtb
    */,
-  TableTotalsTest: "abS3P51kcXLN"
+  DHORAIL1285: "aafM5QCbgVtb"
   /**
-   * Insight Title: scatter example x
-   * Insight ID: aaIfYMhViEjv
+   * Insight Title: EmptyTable
+   * Insight ID: aabZT8uRflyw
    */,
-  ScatterExampleX: "aaIfYMhViEjv"
+  EmptyTable: "aabZT8uRflyw"
+  /**
+   * Insight Title: EmptyBarChart
+   * Insight ID: aabZUbXsfroQ
+   */,
+  EmptyBarChart: "aabZUbXsfroQ"
+  /**
+   * Insight Title: Total Rollup check
+   * Insight ID: aamgg7RnfKl4
+   */,
+  TotalRollupCheck: "aamgg7RnfKl4"
+  /**
+   * Insight Title: verify-1275
+   * Insight ID: aadl8yxHdO4m
+   */,
+  Verify1275: "aadl8yxHdO4m"
+  /**
+   * Insight Title: hurtak - 1327
+   * Insight ID: aabki5dXh9wQ
+   */,
+  Hurtak1327: "aabki5dXh9wQ"
   /**
    * Insight Title: xxx
-   * Insight ID: abtwQrxcfOvC
+   * Insight ID: aadA4E0gatW2
    */,
-  Xxx: "abtwQrxcfOvC"
+  Xxx: "aadA4E0gatW2"
   /**
-   * Insight Title: Line Chart
-   * Insight ID: aaAaDFt4c1yC
+   * Insight Title: Pivot Demo
+   * Insight ID: aanRWCnEbsqd
    */,
-  LineChart: "aaAaDFt4c1yC"
+  PivotDemo: "aanRWCnEbsqd"
   /**
-   * Insight Title: Scatter Chart
-   * Insight ID: ab4aHg6lej5e
+   * Insight Title: Barchart
+   * Insight ID: aacFqqnPbD5h
    */,
-  ScatterChart: "ab4aHg6lej5e"
+  Barchart: "aacFqqnPbD5h"
   /**
-   * Insight Title: Area Chart
-   * Insight ID: acCaGDIrc1iU
+   * Insight Title: Employes vs Employes year ago
+   * Insight ID: aabQVJmMb9Yi
    */,
-  AreaChart: "acCaGDIrc1iU"
+  EmployesVsEmployesYearAgo: "aabQVJmMb9Yi"
   /**
-   * Insight Title: Headline Chart
-   * Insight ID: aaiaOcMqbyMj
+   * Insight Title: hurtak - 1120
+   * Insight ID: aabW0DCNgVFQ
    */,
-  HeadlineChart: "aaiaOcMqbyMj"
+  Hurtak1120: "aabW0DCNgVFQ"
   /**
-   * Insight Title: Bubble Chart
-   * Insight ID: abNaJG2Aed2M
+   * Insight Title: hurtak - 1120
+   * Insight ID: aabW0PfagVK5
    */,
-  BubbleChart_1: "abNaJG2Aed2M"
+  Hurtak1120_1: "aabW0PfagVK5"
   /**
-   * Insight Title: Pie Chart
-   * Insight ID: aaraOcrmdjZd
+   * Insight Title: saved
+   * Insight ID: aac1q69Teini
    */,
-  PieChart: "aaraOcrmdjZd"
+  Saved: "aac1q69Teini"
   /**
-   * Insight Title: Donut Chart
-   * Insight ID: absaJEALgcdO
+   * Insight Title: PV Table
+   * Insight ID: aac42ScWbg9l
    */,
-  DonutChart: "absaJEALgcdO"
+  PVTable: "aac42ScWbg9l"
   /**
-   * Insight Title: Treemap Chart
-   * Insight ID: aajaObFleXdD
+   * Insight Title: table
+   * Insight ID: aadHFQlacx2A
    */,
-  TreemapChart: "aajaObFleXdD"
+  Table: "aadHFQlacx2A"
   /**
-   * Insight Title: Heatmap Chart
-   * Insight ID: abkaJfMYiiCU
+   * Insight Title: sort table
+   * Insight ID: aadUPJy5ahXZ
    */,
-  HeatmapChart: "abkaJfMYiiCU"
+  SortTable: "aadUPJy5ahXZ"
   /**
-   * Insight Title: Bar Chart
-   * Insight ID: aaKaMZUJeyGo
+   * Insight Title: Vis Column
+   * Insight ID: aab4Z649bbEU
    */,
-  BarChart: "aaKaMZUJeyGo"
+  VisColumn: "aab4Z649bbEU"
   /**
-   * Insight Title: yxcv
-   * Insight ID: acGEkojJhJdr
+   * Insight Title: Mai - Datepicker
+   * Insight ID: aarIeGdNiBHS
    */,
-  Yxcv: "acGEkojJhJdr"
+  MaiDatepicker: "aarIeGdNiBHS"
   /**
-   * Insight Title: ColumnsChart
-   * Insight ID: aabOspdLbbvs
+   * Insight Title: Mai-pảyoll
+   * Insight ID: aaFTfnkGhhWz
    */,
-  ColumnsChart: "aabOspdLbbvs"
-  /**
-   * Insight Title: # Checks by Quarter, State
-   * Insight ID: aaW7hwvlfq8Q
-   */,
-  NrChecksByQuarterState: "aaW7hwvlfq8Q"
-  /**
-   * Insight Title: e
-   * Insight ID: ab3sK1TAhDEl
-   */,
-  E: "ab3sK1TAhDEl"
-  /**
-   * Insight Title: TOTVS Table
-   * Insight ID: aesum6Klg3Pg
-   */,
-  TOTVSTable: "aesum6Klg3Pg"
-  /**
-   * Insight Title: tesst date year
-   * Insight ID: aa37yWEJaZgJ
-   */,
-  TesstDateYear: "aa37yWEJaZgJ"
-  /**
-   * Insight Title: pivotka
-   * Insight ID: abOGucCbbjYU
-   */,
-  Pivotka: "abOGucCbbjYU"
-  /**
-   * Insight Title: PivotTable with no filters
-   * Insight ID: abEGARwMcKcp
-   */,
-  PivotTableWithNoFilters: "abEGARwMcKcp"
-  /**
-   * Insight Title: TOTVS Table #2
-   * Insight ID: aattqR1TePqz
-   */,
-  TOTVSTableNr2: "aattqR1TePqz"
-  /**
-   * Insight Title: tetsssss1
-   * Insight ID: abr6SUUDg4J3
-   */,
-  Tetsssss1: "abr6SUUDg4J3"
-  /**
-   * Insight Title: coreui-react
-   * Insight ID: aaSMTErxgsQZ
-   */,
-  CoreuiReact: "aaSMTErxgsQZ"
-  /**
-   * Insight Title: JZA Treemap
-   * Insight ID: aaGJHukYh43y
-   */,
-  JZATreemap: "aaGJHukYh43y"
-  /**
-   * Insight Title: JZA Combo
-   * Insight ID: aaTJJW6adsaj
-   */,
-  JZACombo: "aaTJJW6adsaj"
-  /**
-   * Insight Title: JZA Pivot Example
-   * Insight ID: aaVk0eDhiiyr
-   */,
-  JZAPivotExample: "aaVk0eDhiiyr"
-  /**
-   * Insight Title: Dual Axis Bar Chart
-   * Insight ID: acSoPx4Mc7Rr
-   */,
-  DualAxisBarChart: "acSoPx4Mc7Rr"
-  /**
-   * Insight Title: Checks by year
-   * Insight ID: accyE4bMhKhb
-   */,
-  ChecksByYear: "accyE4bMhKhb"
-  /**
-   * Insight Title: Checks by State
-   * Insight ID: ad0CPFd0eIAV
-   */,
-  ChecksByState: "ad0CPFd0eIAV"
-  /**
-   * Insight Title: DEL
-   * Insight ID: aaXC6TWlfQTa
-   */,
-  DEL: "aaXC6TWlfQTa"
-  /**
-   * Insight Title: DEL
-   * Insight ID: aagDshJTagXX
-   */,
-  DEL_1: "aagDshJTagXX"
-  /**
-   * Insight Title: Long Table
-   * Insight ID: aaDKNE91d2wl
-   */,
-  LongTable: "aaDKNE91d2wl"
-  /**
-   * Insight Title: test
-   * Insight ID: abg7q7o6dYNx
-   */,
-  Test_1: "abg7q7o6dYNx"
-  /**
-   * Insight Title: DHO-test
-   * Insight ID: abtZxLkZfrFD
-   */,
-  DHOTest: "abtZxLkZfrFD"
+  MaiPYoll: "aaFTfnkGhhWz"
   /**
    * Insight Title: KPI
-   * Insight ID: aa5gPlRleK93
+   * Insight ID: aa2Td9p9ahWP
    */,
-  KPI: "aa5gPlRleK93"
+  KPI: "aa2Td9p9ahWP"
   /**
-   * Insight Title: PVA
-   * Insight ID: abCiWPjZbXVS
+   * Insight Title: Bullet
+   * Insight ID: aaM1eRq5eDjN
    */,
-  PVA: "abCiWPjZbXVS"
+  Bullet: "aaM1eRq5eDjN"
   /**
-   * Insight Title: PVA 2
-   * Insight ID: aaCi3GfNaV6Y
+   * Insight Title: Check measure using identifier
+   * Insight ID: aaNGpWw7fPV5
    */,
-  PVA2: "aaCi3GfNaV6Y"
+  CheckMeasureUsingIdentifier: "aaNGpWw7fPV5"
   /**
-   * Insight Title: Table
-   * Insight ID: aaimzjiVfWkM
+   * Insight Title: 12
+   * Insight ID: aaE76f5deHhr
    */,
-  Table: "aaimzjiVfWkM"
+  _12: "aaE76f5deHhr"
   /**
-   * Insight Title: Test Chart #1
-   * Insight ID: aa4ESTLYiu6X
+   * Insight Title: 1235
+   * Insight ID: aadffKZVaSNm
    */,
-  TestChartNr1: "aa4ESTLYiu6X"
+  _1235: "aadffKZVaSNm"
   /**
-   * Insight Title: Table
-   * Insight ID: acN7DuCPiDoh
+   * Insight Title: XIR
+   * Insight ID: aagjDM8OcKJn
    */,
-  Table_1: "acN7DuCPiDoh"
+  XIR: "aagjDM8OcKJn"
   /**
-   * Insight Title: Chart #1
-   * Insight ID: admoLzGrddbk
+   * Insight Title: BarChart - short by the first measure
+   * Insight ID: aailIXJdd3k2
    */,
-  ChartNr1: "admoLzGrddbk"
+  BarChartShortByTheFirstMeasure: "aailIXJdd3k2"
   /**
-   * Insight Title: geoPushpinChart
-   * Insight ID: acebcI3fhaRI
+   * Insight Title: BarChart - sort on stacking
+   * Insight ID: aacl8fRCaSqC
    */,
-  GeoPushpinChart: "acebcI3fhaRI"
+  BarChartSortOnStacking: "aacl8fRCaSqC"
   /**
-   * Insight Title: Bullet Chart
-   * Insight ID: aaQxY4PLbBsQ
+   * Insight Title: DualBarChart- sorting
+   * Insight ID: aadl8fRCaSqC
    */,
-  BulletChart: "aaQxY4PLbBsQ"
+  DualBarChartSorting: "aadl8fRCaSqC"
+  /**
+   * Insight Title: AreaChart
+   * Insight ID: aahNloljf3fk
+   */,
+  AreaChart: "aahNloljf3fk"
+  /**
+   * Insight Title: Bullet_2
+   * Insight ID: aabNRd4BgMCp
+   */,
+  Bullet2: "aabNRd4BgMCp"
+  /**
+   * Insight Title: Heatmap
+   * Insight ID: aabOAY90d7Jz
+   */,
+  Heatmap: "aabOAY90d7Jz"
+  /**
+   * Insight Title: Treemap
+   * Insight ID: aabOA2Ice5E2
+   */,
+  Treemap: "aabOA2Ice5E2"
+  /**
+   * Insight Title: Combo
+   * Insight ID: aacOz8yJe5t2
+   */,
+  Combo: "aacOz8yJe5t2"
+  /**
+   * Insight Title: Donut
+   * Insight ID: aabOChn4hm8I
+   */,
+  Donut: "aabOChn4hm8I"
+  /**
+   * Insight Title: Pie
+   * Insight ID: aabOCoJIe5Di
+   */,
+  Pie: "aabOCoJIe5Di"
+  /**
+   * Insight Title: Headline
+   * Insight ID: aacOA2Ice5E2
+   */,
+  Headline: "aacOA2Ice5E2"
+  /**
+   * Insight Title: StackArea
+   * Insight ID: aacOAY90d7Jz
+   */,
+  StackArea: "aacOAY90d7Jz"
+  /**
+   * Insight Title: Scatter
+   * Insight ID: aatOtuoYdwRn
+   */,
+  Scatter: "aatOtuoYdwRn"
+  /**
+   * Insight Title: bubble
+   * Insight ID: aanOuT1Dc1D4
+   */,
+  Bubble: "aanOuT1Dc1D4"
+  /**
+   * Insight Title: Xirr
+   * Insight ID: aaiOsQrVdsvO
+   */,
+  Xirr: "aaiOsQrVdsvO"
+  /**
+   * Insight Title: Line
+   * Insight ID: aarOkYKKeejQ
+   */,
+  Line: "aarOkYKKeejQ"
+  /**
+   * Insight Title: PV
+   * Insight ID: aatOx1qegRU8
+   */,
+  PV: "aatOx1qegRU8"
 };

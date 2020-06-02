@@ -12,6 +12,8 @@ interface PreviousPeriodHeadLineExampleBucketProps {
   filters?: any[];
   onLoadingChanged?: any;
   onError?: any;
+  backend: any;
+  workspace: any;
 }
 
 interface PreviousPeriodHeadLineExampleProps {

@@ -148,8 +148,14 @@ import { AttributeElementComponent } from './components/attribute-element/attrib
 import { MeasureValueFilterComponentExampleComponent } from './components/measure-value-filter-component-example/measure-value-filter-component-example.component';
 import { MeasureValueFilterComponentPercentageExampleComponent } from './components/measure-value-filter-component-percentage-example/measure-value-filter-component-percentage-example.component';
 import { MeasureValueFilterComponentShowInPercentComponent } from './components/measure-value-filter-component-show-in-percent/measure-value-filter-component-show-in-percent.component';
-import { VisualizationHasMvfComponent } from './visualizations/visualization-has-mvf/visualization-has-mvf.component'
-
+import { VisualizationHasMvfComponent } from './visualizations/visualization-has-mvf/visualization-has-mvf.component';
+import { ColumnHasAggregateMeasureComponent } from './examples/column-has-aggregate-measure/column-has-aggregate-measure.component'
+;
+import { ExecuteComponent } from './examples/execute/execute.component';
+import { ExecuteAttributeComponent } from './examples/execute-attribute/execute-attribute.component'
+;
+import { ExecuteExampleComponent } from './examples/execute-example/execute-example.component';
+import { SortingComponent } from './examples/sorting/sorting.component'
 @NgModule({
     imports: [
         BrowserModule,
@@ -299,9 +305,14 @@ import { VisualizationHasMvfComponent } from './visualizations/visualization-has
         MeasureValueFilterComponentExampleComponent,
         MeasureValueFilterComponentPercentageExampleComponent,
         MeasureValueFilterComponentShowInPercentComponent,
-        VisualizationHasMvfComponent
-
-
+        VisualizationHasMvfComponent,
+        ColumnHasAggregateMeasureComponent
+,
+        ExecuteComponent,
+        ExecuteAttributeComponent
+,
+        ExecuteExampleComponent,
+        SortingComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

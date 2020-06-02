@@ -39,10 +39,10 @@ import  LineChartHasSegmentByComponentSRC  from '!!raw-loader!../../components/l
 import  LineChartHasSegmentByComponentHTML  from '!!raw-loader!../../components/line-chart-has-segmeny-by/line-chart-has-segmeny-by.component.html';
 import  LineChartHasSegmentByComponentCSS  from '!!raw-loader!../../components/line-chart-has-segmeny-by/line-chart-has-segmeny-by.component.css';
 
-import { AreaChartComponent } from '../../components/area-chart/area-chart.component';
-import  AreaChartComponentSRC  from '!!raw-loader!../../components/area-chart/area-chart.component.ts';
-import  AreaChartComponentHTML  from '!!raw-loader!../../components/area-chart/area-chart.component.html';
-import  AreaChartComponentCSS  from '!!raw-loader!../../components/area-chart/area-chart.component.css';
+import { ColumnHasAggregateMeasureComponent } from '../../examples/column-has-aggregate-measure/column-has-aggregate-measure.component';
+import  ColumnHasAggregateMeasureComponentSRC  from '!!raw-loader!../../examples/column-has-aggregate-measure/column-has-aggregate-measure.component.ts';
+import  ColumnHasAggregateMeasureComponentHTML  from '!!raw-loader!../../examples/column-has-aggregate-measure/column-has-aggregate-measure.component.html';
+import  ColumnHasAggregateMeasureComponentCSS  from '!!raw-loader!../../examples/column-has-aggregate-measure/column-has-aggregate-measure.component.css';
 
 import { AreaChartHasColorPaletteComponent } from '../../components/area-chart-has-color-palette/area-chart-has-color-palette.component';
 import  AreaChartHasColorPaletteComponentSRC  from '!!raw-loader!../../components/area-chart-has-color-palette/area-chart-has-color-palette.component.ts';
@@ -142,13 +142,13 @@ export class BasicComponentsComponent implements OnInit {
     //   html: TableComponentHTML,
     //   css: TableComponentCSS
     // },
-    {
-      title: 'Bar chart has 1 measure, 1 viewBy',
-      for: BarChartComponent,
-      ts: BarChartComponentSRC,
-      html: BarChartComponentHTML,
-      css: BarChartComponentCSS
-    },
+    // {
+    //   title: 'Bar chart has 1 measure, 1 viewBy',
+    //   for: BarChartComponent,
+    //   ts: BarChartComponentSRC,
+    //   html: BarChartComponentHTML,
+    //   css: BarChartComponentCSS
+    // },
     // {
     //   title: 'Column chart has 1 measure, 1 viewBy ans sort by measure',
     //   for: ColumnChartComponent,
@@ -171,11 +171,11 @@ export class BasicComponentsComponent implements OnInit {
     //   css: LineChartHasSegmentByComponentCSS
     // },
     {
-      title: 'Area Chart has StackBy',
-      for: AreaChartComponent,
-      ts: AreaChartComponentSRC,
-      html: AreaChartComponentHTML,
-      css: AreaChartComponentCSS
+      title: 'Insight has aggregate measures',
+      for: ColumnHasAggregateMeasureComponent,
+      ts: ColumnHasAggregateMeasureComponentSRC,
+      html: ColumnHasAggregateMeasureComponentHTML,
+      css: ColumnHasAggregateMeasureComponentCSS
     },
     // {
     //   title: 'Area Chart has color palette',

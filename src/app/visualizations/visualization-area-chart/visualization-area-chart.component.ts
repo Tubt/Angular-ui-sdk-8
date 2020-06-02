@@ -3,18 +3,24 @@ import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, OnInit ,OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { InsightView } from "@gooddata/sdk-ui-ext";
+// import { projectId, areaVisualizationIdentifier } from "../../../utils/fixtures";
+// import { Visualization } from '@gooddata/react-components';
 
-import { projectId, areaVisualizationIdentifier } from "../../../utils/fixtures";
-import { Visualization } from '@gooddata/react-components';
+import { LdmExt, Ldm } from "../../../ldm";
+import { workspace } from "../../../utils/fixtures";
+import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
+const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
 
 interface VisualizationAreaChartProps {
-  projectId: any;
-  identifier:any;  
+  insight: any;
+  workspace:any;  
+  backend:any;
 }
 
 @Component({
   selector: 'app-visualization-area-chart',
-  template: '<div class="visualization-area-chart" style="height:300px" [id]="rootDomID"></div>',
+  template: '<div class="pivot-table" style="height:500px" [id]="rootDomID"></div>',
 })
 
 export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
@@ -28,8 +34,10 @@ export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnCha
 
   protected getProps(): VisualizationAreaChartProps {
     return {
-      projectId:projectId,
-      identifier: areaVisualizationIdentifier,
+      backend:backend,
+      workspace: workspace,
+      insight: Ldm.Insights.PV,
+      
     };
   }
 
@@ -39,7 +47,7 @@ export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnCha
 
   protected render() {
     if (this.isMounted()) {
-      ReactDOM.render(React.createElement(Visualization, this.getProps()), this.getRootDomNode());
+      ReactDOM.render(React.createElement(InsightView, this.getProps()), this.getRootDomNode());
     }
   }
 

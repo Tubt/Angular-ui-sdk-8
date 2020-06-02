@@ -5,9 +5,18 @@ import {
     newMeasure,
     modifySimpleMeasure,
     modifyAttribute,
+    IMeasure,
+    IMeasureDefinition,
+    newPositiveAttributeFilter,
+    newNegativeAttributeFilter,
+    newAbsoluteDateFilter,
+    newRelativeDateFilter,
+    newAttribute,
+    IAttribute,
 } from "@gooddata/sdk-model";
 import { workspace } from "../utils/fixtures.js";
 import * as Ldm from "./full";
+import { LdmExt } from "./index.js";
 
 /*
  * This file contains our custom extensions on top of the reference LDM. Things such as arithmetic
@@ -39,11 +48,14 @@ export const LocationStateLocalId = "locationState";
 export const LocationCityLocalId = "locationCity";
 export const quaterDateLocalId = "quarter";
 export const franchiseSalesComputeRatioLocalId = "franchiseSalesComputeRatio";
+export const menuItemQuantityLocalId = "menuItemQuantityLocalId";
+
 
 // ===============================================================================================
 
 export const averageRestaurantDailyCostsIdentifier = "aaQJzQzoeKwZ";
 export const totalSalesIdentifier = "aa7ulGyKhIE5";
+export const franchiseFeesIdentifier = "aaEGaXAEgB7U";
 export const dateDatasetIdentifier = "date.dataset.dt";
 export const franchiseFeesTag = "franchise_fees";
 export const yearDateDataSetAttributeIdentifier = "date.year";
@@ -62,7 +74,7 @@ export const FranchiseFees = modifyMeasure(Ldm.$FranchiseFees, m =>
     m
         .format("#,##0")
         .localId(franchiseFeesLocalId)
-        .title("Franchise Fees"),
+        .title("Franchise Fees123"),
 );
 export const franchiseFeesAsPercents = modifySimpleMeasure(FranchiseFees, m =>
     m.title("Franchise Fees shown in %").ratio(),
@@ -105,11 +117,18 @@ export const franchiseFeesMeasures = [
 );
 
 export const TotalSales1 = modifyMeasure(Ldm.$TotalSales, m => m.format("#,##0").alias("$ Total Sales"));
-export const TotalSales2 = modifyMeasure(Ldm.$TotalSales, m =>
+export const MenuItemSales = modifyMeasure(Ldm.$MenuItemSales.Sum, m =>
     m
         .format("#,##0")
+        // .alias("$ Menu Item Sales")
+        // .title("Menu Item Sales Title")
+        // .localId("MenuItemSales"),
+);
+export const TotalSales2 = modifyMeasure(Ldm.$TotalSales, m =>
+    m
+        .format("#,##0 VND")
         .alias("$ Total Sales")
-        .title("Total Sales")
+        .title("Total Sales12345")
         .localId(totalSalesLocalId),
 );
 export const TotalSales3 = modifySimpleMeasure(Ldm.$TotalSales, m =>
@@ -122,6 +141,21 @@ export const TotalCosts = modifyMeasure(Ldm.$TotalCosts, m =>
         .localId(totalCostsLocalId),
 );
 
+export const Sum_MenuItemQuantity = modifyMeasure(Ldm.MenuItemQuantity.Sum, m =>
+    m
+        .format("[>=1000000000]$#,,,.0 B;[>=1000000]$#,,.0 M;[>=1000]$#,.0 K;[>=0]$#,##0;[<=-1000000000]-$#,,,.0 B;[<=-1000000]-$#,,.0 M;[<=-1000]-$#,.0 K;[<0]-$#,##0")
+        .alias("$ Sum of MenuItemQuantity")
+        .localId(menuItemQuantityLocalId),
+);
+export const Sum_MenuItemQuantity_Ratio = modifySimpleMeasure(Sum_MenuItemQuantity, m =>
+    m
+        .format("#,##0.00%")
+        .localId("Sum_MenuItemQuantity_Ratio")
+        .title("Sum of MenuItemQuantity shown in %")
+        .ratio(),
+);
+
+// ==================================================================================================== //
 export const EmployeeName = modifyAttribute(Ldm.EmployeeName.Default, a => a.localId(EmployeeNameLocalId));
 export const LocationName = modifyAttribute(Ldm.LocationName.Default, a => a.localId(LocationNameLocalId));
 export const LocationResort = modifyAttribute(Ldm.LocationResort, a => a.localId(LocationNameLocalId));
@@ -197,6 +231,7 @@ export const averageRestaurantDailyCosts = newMeasure(averageRestaurantDailyCost
     m.format("#,##0").localId(averageRestaurantDailyCostsLocalId),
 );
 
+
 // ===============================================================================================
 
 export const locationStateAttributeUri = `/gdc/md/${workspace}/obj/2210`;
@@ -212,3 +247,58 @@ export const tableInsightViewUri = `/gdc/md/${workspace}/obj/8702`;
 export const locationStateAttributeIdentifier = "attr.restaurantlocation.locationstate";
 export const locationIdAttributeIdentifier = "attr.restaurantlocation.locationid";
 export const locationCityAttributeIdentifier = "attr.restaurantlocation.locationcity";
+
+
+// ======================================================================================================
+// custom measure //
+export const AttributeFilterByValues: IMeasure<IMeasureDefinition> = newMeasure("aa7ulGyKhIE5", 
+    f =>f.filters(newPositiveAttributeFilter(Ldm.EmployeeName.Default, ["Abbie Adams", "Aaron Clements", "Adam Kimble", "Allen Garza"])));
+
+export const AttributeFilterByUris: IMeasure<IMeasureDefinition> = newMeasure("aa7ulGyKhIE5", 
+f =>f.filters(newNegativeAttributeFilter(Ldm.EmployeeName.Default, { uris: [`/gdc/md/${workspace}/obj/2200/elements?id=6339877`,`/gdc/md/${workspace}/obj/2200/elements?id=6339879`]})));
+
+export const AbsoluteDateFilter: IMeasure<IMeasureDefinition> = newMeasure("aa7ulGyKhIE5", 
+f =>f.filters(newAbsoluteDateFilter(LdmExt.dateDatasetIdentifier, "2017-01-01", "2017-05-31")));
+
+export const RelativeDateFilter: IMeasure<IMeasureDefinition> = newMeasure("aa7ulGyKhIE5", 
+f =>f.filters(newRelativeDateFilter(LdmExt.dateDatasetIdentifier, "GDC.time.year", -3, -3)));
+
+export const AttributeFilter_values = modifyMeasure(LdmExt.AttributeFilterByValues, m =>
+    m
+        .format("#,##0")
+        .alias("$ Total Sales filter by values")
+        .localId(totalSalesLocalId),
+);
+
+export const AttributeFilter_Uris = modifyMeasure(LdmExt.AttributeFilterByUris, m =>
+    m
+        .format("#,##0$")
+        .alias("$ Total Sales filter by uris")
+        .localId(totalSalesLocalId),
+);
+
+export const ObsoluteDate_Filter = modifyMeasure(LdmExt.AbsoluteDateFilter, m =>
+    m
+        .format("#,##0$")
+        .alias("$ Total Sales has Obsolute Date Filter")
+        .localId(totalSalesLocalId),
+);
+
+export const RelativeDate_Filter = modifyMeasure(LdmExt.RelativeDateFilter, m =>
+    m
+        .format("#,##0$")
+        .alias("$ Total Sales has Relative Date Filter")
+        .localId(totalSalesLocalId),
+);
+
+//   fact.csv_simple_xirr_data_set.cashflow
+
+export const DayXIRR: IAttribute = newAttribute("date.date.mmddyyyy");
+
+export const DayXIRR_1 = {
+    /**
+     * Display Form Title: Short (Mon) (Date)
+     * Display Form ID: date.abU81lMifn6q
+     */
+    Day: newAttribute("date.date.mmddyyyy")
+}

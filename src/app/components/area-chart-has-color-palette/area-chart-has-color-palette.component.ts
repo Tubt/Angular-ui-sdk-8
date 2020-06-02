@@ -2,27 +2,22 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
-import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-import { AreaChart, Model } from '@gooddata/react-components';
+import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
+import { AreaChart } from "@gooddata/sdk-ui-charts";
+import { LdmExt } from "../../../ldm";
+import { workspace } from "../../../utils/fixtures";
 
-import {
-  projectId,
-  totalSalesIdentifier,
-  locationResortIdentifier,
-  franchiseFeesIdentifier,
-  grossProfitIdentifier,
-} from "../../../utils/fixtures";
+import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
+const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
 
 import { CUSTOM_COLOR_PALETTE } from "../../../utils/colors";
 
 interface AreaChartHasColorPaletteBucketProps {
   measures: any[];
   viewBy?: any;
+  backend: any;
+  workspace: any;
   config?: any;
-}
-
-interface AreaChartHasColorPaletteProps {
-  projectId: any;
 }
 
 @Component({
@@ -32,17 +27,12 @@ interface AreaChartHasColorPaletteProps {
 
 export class AreaChartHasColorPaletteComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   measures = [
-    Model.measure(totalSalesIdentifier)
-      .format("#,##0")
-      .alias("$ Total Sales"),
-    Model.measure(franchiseFeesIdentifier)
-      .alias("Franchise Fee")
-      .format("$#,##0.00"),
-    Model.measure(grossProfitIdentifier)
-      .alias("Gross Profit")
-      .format("$#,##0.00")
-    ]
-  viewBy = Model.attribute(locationResortIdentifier)
+    LdmExt.FranchiseFees,
+    LdmExt.FranchiseFeesAdRoyalty,
+    LdmExt.FranchiseFeesInitialFranchiseFee,
+    LdmExt.FranchiseFeesOngoingRoyalty,
+  ];  
+  
   config = {
     stackMeasures: false,
     stackMeasuresToPercent: true,
@@ -68,11 +58,12 @@ export class AreaChartHasColorPaletteComponent implements OnInit, OnDestroy, OnC
     return node;
   }
 
-  protected getProps(): AreaChartHasColorPaletteProps | AreaChartHasColorPaletteBucketProps {
+  protected getProps(): AreaChartHasColorPaletteBucketProps {
     return {
-      projectId: projectId,
+      backend: backend,
+      workspace: workspace,
       measures: this.measures,
-      viewBy: this.viewBy,
+      viewBy: LdmExt.monthDate,
       config: this.config
     };
   }

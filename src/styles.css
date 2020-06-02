@@ -1,10 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-
+ 
 @import "@gooddata/react-components/styles/css/main.css";
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import "@gooddata/react-components/styles/css/pivotTable.css";
+/* @import "@gooddata/react-components/styles/css/pivotTable.css"; 
 @import '@gooddata/react-components/styles/css/dateFilter.css';
-@import "react-datepicker/dist/react-datepicker.css";
+@import "react-datepicker/dist/react-datepicker.css"; */
+@import '@gooddata/sdk-ui-charts/styles/css/main.css'; 
+@import "@gooddata/sdk-ui-pivot/styles/css/main.css";
+@import "@gooddata/sdk-ui-ext/styles/css/insightView.css";
+@import "@gooddata/sdk-ui-pivot/styles/css/menu.css";
+/* @import '@gooddata/sdk-ui-filters/styles/css/main.css';
+@import '@gooddata/sdk-ui-filters/styles/css/dateFilter.css';
+@import '@gooddata/sdk-ui-filters/styles/css/attributeFilter.css'; */
+
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 .separator {
@@ -19,4 +27,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
     border-left : 3px solid #81BEF7;
     background-color: #F2F2F2;
 
+}
+.dashboard-like-6 {
+    width: 665px;
+    height: 362px;
+    border: 2px black solid;
+    padding: 40px;
+    margin: 10px;
+}
+.dashboard-like-12 {
+    width: 1362px;
+    height: 362px;
+    border: 2px black solid;
+    padding: 40px;
+    margin: 10px;
+}
+
+.ad-like-render {
+    width: 825px;
+    height: 650px;
+    border: 2px black solid;
+    padding: 40px;
+    margin: 10px;
 }

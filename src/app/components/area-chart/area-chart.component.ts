@@ -3,8 +3,8 @@ import * as ReactDOM from 'react-dom';
 import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
-import { AreaChart } from "@gooddata/sdk-ui-charts";
-import { LdmExt } from "../../../ldm";
+import { ColumnChart } from "@gooddata/sdk-ui-charts";
+import { LdmExt, Ldm } from "../../../ldm";
 import { workspace } from "../../../utils/fixtures";
 
 import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
@@ -24,10 +24,11 @@ interface AreaChartBucketProps {
 
 export class AreaChartComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
   measures = [
-    LdmExt.FranchiseFees,
-    LdmExt.FranchiseFeesAdRoyalty,
-    LdmExt.FranchiseFeesInitialFranchiseFee,
-    LdmExt.FranchiseFeesOngoingRoyalty,
+    Ldm.MenuItemQuantity.Sum,
+    Ldm.ScheduledCost.Sum,
+    // LdmExt.FranchiseFeesAdRoyalty,
+    // LdmExt.FranchiseFeesInitialFranchiseFee,
+    // LdmExt.FranchiseFeesOngoingRoyalty,
   ];  
 
   public rootDomID: string;
@@ -53,7 +54,7 @@ export class AreaChartComponent implements OnInit, OnDestroy, OnChanges, AfterVi
 
   protected render() {
     if (this.isMounted()) {
-      ReactDOM.render(React.createElement(AreaChart, this.getProps()), this.getRootDomNode());
+      ReactDOM.render(React.createElement(ColumnChart, this.getProps()), this.getRootDomNode());
     }
   }
 

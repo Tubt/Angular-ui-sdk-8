@@ -4,51 +4,65 @@ import * as uuid from 'uuid';
 import * as invariant from 'invariant';
 import { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } from '@angular/core';
 import { Table, Model } from '@gooddata/react-components';
+import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
+const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
 
-import {
-  projectId,
-  monthDateIdentifier,
-  totalSalesIdentifier,
-  dateDataSetUri
-} from '../../../utils/fixtures.js';
+import { LdmExt, Ldm } from "../../../ldm";
+import { workspace } from "../../../utils/fixtures";
+
+// import {
+//   projectId,
+//   monthDateIdentifier,
+//   totalSalesIdentifier,
+//   dateDataSetUri
+// } from '../../../utils/fixtures.js';
+import { PivotTable } from '@gooddata/sdk-ui-pivot';
+import { newPreviousPeriodMeasure, newArithmeticMeasure, newAbsoluteDateFilter } from '@gooddata/sdk-model';
 
 interface ArithmeticMeasureChangeBucketProps {
-  projectId: any;
+  workspace: any;
+  backend: any;
   measures?: any[];
-  attributes?: any[];
+  rows?: any[];
+  columns?:any[];
   filters?: any[];
+  onLoadingChanged?: any;
+  onError?: any;
 }
 
-interface ArithmeticMeasureChangeProps {
-  projectId: any;
-}
+const totalSalesYearAgoBucketItem = newPreviousPeriodMeasure(
+  LdmExt.TotalSales1,
+  [{ dataSet: LdmExt.dateDatasetIdentifier, periodsAgo: 1 }],
+  m => m.alias("$ Total Sales - year ago"),
+);
+
+const changeMeasure = newArithmeticMeasure([LdmExt.FranchiseFees,LdmExt.TotalSales1], "ratio", m =>
+  m.title("% Total Sales Change"),
+);
+
+const measures = [LdmExt.FranchiseFees, LdmExt.TotalSales1, changeMeasure];
+
+const rows = [Ldm.DateMonthYear.Short];
+
+const filters = [newAbsoluteDateFilter(LdmExt.dateDatasetIdentifier, "2017-01-01", "2017-12-31")];
+
+const style = { height: 200 };
+
 
 @Component({
   selector: 'app-arithmetic-measures-change',
   template: '<div class="arithmetic-measures-change" style="height:400px" [id]="rootDomID"></div>',
 })
 export class ArithmeticMeasureChangeComponent implements OnInit, OnDestroy, OnChanges, AfterViewInit {
-  totalSalesYearAgoBucketItem = Model.previousPeriodMeasure("totalSales", [{ dataSet: dateDataSetUri, periodsAgo: 1 },])
-    .alias("$ Total Sales - year ago")
-    .localIdentifier("totalSales_sp");
-  totalSalesBucketItem = Model.measure(totalSalesIdentifier)
-    .localIdentifier("totalSales")
-    .alias("$ Total Sales");
-  measures = [
-    this.totalSalesYearAgoBucketItem,
-    this.totalSalesBucketItem,
-    Model.arithmeticMeasure(
-      [
-        this.totalSalesBucketItem.measure.localIdentifier,
-        this.totalSalesYearAgoBucketItem.measure.localIdentifier,
-      ],
-      "change",
-    )
-      .title("% Total Sales Change")
-      .localIdentifier("totalSalesChange"),
-  ]
-  attributes = [Model.attribute(monthDateIdentifier).localIdentifier("month")]
-  filters = [Model.absoluteDateFilter(dateDataSetUri, "2017-01-01", "2017-12-31")];
+  public onLoadingChanged(...params: any) {
+    // tslint:disable-next-line:no-console
+    return console.log("PreviousPeriodHeadlineExample onLoadingChanged", ...params);
+}
+
+public onError(...params: any) {
+    // tslint:disable-next-line:no-console
+    return console.log("PreviousPeriodHeadlineExample onError", ...params);
+}
   public rootDomID: string;
 
   protected getRootDomNode() {
@@ -57,12 +71,16 @@ export class ArithmeticMeasureChangeComponent implements OnInit, OnDestroy, OnCh
     return node;
   }
 
-  protected getProps(): ArithmeticMeasureChangeProps | ArithmeticMeasureChangeBucketProps {
+  protected getProps():  ArithmeticMeasureChangeBucketProps {
     return {
-      projectId: projectId,
-      measures: this.measures,
-      attributes: this.attributes,
-      filters: this.filters,
+      workspace: workspace,
+      backend: backend,
+      measures: measures,
+      rows: rows,
+      columns: [Ldm.DateYear],
+      onError: this.onError,
+      onLoadingChanged: this.onLoadingChanged,
+      // filters: filters,
     };
   }
 
@@ -72,7 +90,7 @@ export class ArithmeticMeasureChangeComponent implements OnInit, OnDestroy, OnCh
 
   protected render() {
     if (this.isMounted()) {
-      ReactDOM.render(React.createElement(Table, this.getProps()), this.getRootDomNode());
+      ReactDOM.render(React.createElement(PivotTable, this.getProps()), this.getRootDomNode());
     }
   }
 
