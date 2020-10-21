@@ -9,9 +9,9 @@
 @import "@gooddata/sdk-ui-pivot/styles/css/main.css";
 @import "@gooddata/sdk-ui-ext/styles/css/insightView.css";
 @import "@gooddata/sdk-ui-pivot/styles/css/menu.css";
-/* @import '@gooddata/sdk-ui-filters/styles/css/main.css';
-@import '@gooddata/sdk-ui-filters/styles/css/dateFilter.css';
-@import '@gooddata/sdk-ui-filters/styles/css/attributeFilter.css'; */
+ @import '@gooddata/sdk-ui-filters/styles/css/main.css'; 
+/* @import '@gooddata/sdk-ui-filters/styles/css/dateFilter.css';
+@import '@gooddata/sdk-ui-filters/styles/css/attributeFilter.css';  */
 
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

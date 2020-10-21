@@ -7,6 +7,7 @@ import { InsightView } from "@gooddata/sdk-ui-ext";
 // import { projectId, areaVisualizationIdentifier } from "../../../utils/fixtures";
 // import { Visualization } from '@gooddata/react-components';
 
+import { CUSTOM_COLOR_PALETTE } from "../../../utils/colors.js";
 import { LdmExt, Ldm } from "../../../ldm";
 import { workspace } from "../../../utils/fixtures";
 import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-bear";
@@ -16,6 +17,7 @@ interface VisualizationAreaChartProps {
   insight: any;
   workspace:any;  
   backend:any;
+  colorPalette: any;
 }
 
 @Component({
@@ -36,10 +38,11 @@ export class VisualizationAreaChartComponent implements OnInit, OnDestroy, OnCha
     return {
       backend:backend,
       workspace: workspace,
-      insight: Ldm.Insights.PV,
-      
+      insight: Ldm.Insights.Bullet,
+      colorPalette: CUSTOM_COLOR_PALETTE
     };
   }
+  
 
   private isMounted(): boolean {
     return !!this.rootDomID;

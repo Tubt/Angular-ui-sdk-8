@@ -7,6 +7,8 @@ import { PivotTable, Model } from '@gooddata/react-components';
 
 import { projectId, locationNameDisplayFormIdentifier, franchisedSalesIdentifier }
   from '../../../utils/fixtures';
+import { newMeasureValueFilter } from '@gooddata/sdk-model';
+import { LdmExt, Ldm } from 'src/ldm';
 
 export interface PivotTableBucketProps {
   projectId: any;
@@ -35,17 +37,15 @@ export class MeasureValueFilterExamplesComponent implements OnInit, OnDestroy, O
   public greater: string;
   public bewteen: string;
   isActive: boolean;
-  totalSales = Model.measure(franchisedSalesIdentifier).localIdentifier('franchisedSales').title("Franchised Sales");
-  locationResort = Model.attribute(locationNameDisplayFormIdentifier);
-  attributes = [Model.attribute(locationNameDisplayFormIdentifier).localIdentifier("locationName")];
-  greaterThanFilter = Model.measureValueFilter('franchisedSales').condition("GREATER_THAN", {
-    value: 7000000,
-  });
+  totalSales = LdmExt.TotalSales1;
+  locationResort = Ldm.LocationResort;
+  attributes = Ldm.LocationName.Default
+  greaterThanFilter = newMeasureValueFilter(LdmExt.TotalSales1, "GREATER_THAN", 700000);
 
-  betweenFilter = Model.measureValueFilter('franchisedSales').condition("BETWEEN", {
-    from: 5000000,
-    to: 8000000,
-  });
+  // betweenFilter = Model.measureValueFilter('franchisedSales').condition("BETWEEN", {
+  //   from: 5000000,
+  //   to: 8000000,
+  // });
 
   state = {
     isActive: false,

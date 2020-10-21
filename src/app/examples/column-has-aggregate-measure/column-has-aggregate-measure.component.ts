@@ -15,7 +15,6 @@ import bearFactory, { ContextDeferredAuthProvider } from "@gooddata/sdk-backend-
 const backend = bearFactory().withAuthentication(new ContextDeferredAuthProvider());
 
 interface AreaChartBucketProps {
-  // measures: any[];
   viewBy?: any[];
   // stackBy?: any;
   // config?: any;
@@ -44,6 +43,7 @@ interface AreaChartBucketProps {
   selector: 'app-column-has-aggregate-measure',
   template: '<div class="s-column-chart" style="height:500px" [id]="rootDomID"></div>',
 })
+
 export class ColumnHasAggregateMeasureComponent implements OnInit {
 
 
@@ -138,7 +138,7 @@ export class ColumnHasAggregateMeasureComponent implements OnInit {
       // totals: this.totals,
       // config: {
       //   menu: {
-      //     aggregations: true,
+      //     aggregations: true,    
       //     aggregationsSubMenu: true,
       //   }
       // },
@@ -153,7 +153,7 @@ export class ColumnHasAggregateMeasureComponent implements OnInit {
       // trendBy: Ldm.LocationResort,
       // segmentBy: LdmExt.monthDate,
       // stackBy: Ldm.LocationResort,
-      // filters: this.filters,
+      // filters: this.filters, 
     };
   }
 

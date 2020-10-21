@@ -25,13 +25,10 @@ export class ExampleWithSourceComponent implements OnInit {
   @Input() for: any;
   
   @ViewChild('container', {
-    read: ViewContainerRef,
-    static: false
-  }) container: ViewContainerRef;
+    read: ViewContainerRef
+}) container: ViewContainerRef;
 
-  @ViewChild('tabGroup',{
-    static: false
-  }) tabGroup: MatTabGroup;
+  @ViewChild('tabGroup') tabGroup: MatTabGroup;
 
   renderComponent() {
     const container = this.container; 

@@ -81,40 +81,7 @@ export class ExecuteExampleComponent implements OnInit, OnDestroy, OnChanges, Af
       if (isLoading || !result) {
         return React.createElement(LoadingComponent, null);
       }
-      for (const series of result.data().series()) {
-        // first series is for Won measure, second for Lost
-        for (const dataPoint of series) {
-          // now listing data points, one for each region
-    
-          let regionName = dataPoint.sliceTitles()[0];
-          let value = dataPoint.formattedValue();
-          console.log(value);
-          return React.createElement("div", {
-              className: "kpi"
-            }, React.createElement("p", {
-              className: "kpi s-execute-kpi"
-            }, value, regionName));
-        }
-      }
       
-    
-      console.log(result.data().series());
-      console.log(result.data().slices());
-      // return React.createElement(ReactHighcharts, {
-      //   config: {
-      //     chart: {
-      //       type: 'column',
-      //     },
-      //     title: {
-      //       text: '🎉🍾🙌 My First Custom Chart 🙌🍾🎉'
-      //     },
-      //     // series:  result.data().series().firstForMeasure(this.measure).dataPoints()[0].formattedValue()
-      //     series: result.executeResult
-          
-      //   }
-      // })
-
-
       // const measureSeries1 = result.data().series().firstForMeasure(this.francheFrees);
       const measureSeries2 = result.data().series().firstForMeasure(this.measure);
 
